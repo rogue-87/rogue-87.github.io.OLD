@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Play:wght@400;700&family=Roboto:wght@300;400;500;700&family=Silkscreen&display=swap');
+
+@mixin terminal($isTopTerminal){
+  @if($isTopTerminal){
+    background-color: black;
+    border: 3px solid rgb(172, 172, 172);
+    border-top: 20px solid rgb(172, 172, 172);
+  }
+  @else{
+    background-color: black;
+    border: 3px solid rgb(172, 172, 172);
+    border-top: 3px solid rgb(172, 172, 172);
+  }
+  
+  width: 70dvh;
+}
+
+body{
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Chakra Petch', sans-serif;
+  color: white;
+  background-color: #181818;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+    @include terminal(false);
+  
+  >div{
+    margin: 1em;
+  }
+}
+
+.profile-desc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  >div{
+    display: inline-flex;
+  }
+
+  >img{
+    width: 100px;
+    border-radius: calc(100px/2);
+  }
+}
+
+.pages{
+  @include terminal(false);
+  display: grid;
+  gap: 1rem 5rem;
+  justify-content: center;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 50px 50px 50px;
+  grid-template-areas: 
+  "dashboard dashboard"
+  "projects gallery"
+  "games games";
+
+  
+  >a:first-child{
+    grid-area: dashboard;
+  }
+  
+  >a:nth-child(2){
+    grid-area: projects;
+  }
+  
+  >a:nth-child(3){
+    grid-area: gallery;
+  }
+  
+  >a:last-child{
+    grid-area: games;
+  }
+  //why not nth child all of em? I dunno.
+  
+  >a{
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+  }
+
+  >a:hover{
+    // text-decoration: underline;
+    border: 1px solid white;
+  }
+}
+
+#terminal{
+  @include terminal(true);
+  height: 80px;
+  font-weight: bold;
+}

@@ -1,0 +1,110 @@
+@import "https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Play:wght@400;700&family=Roboto:wght@300;400;500;700&family=Silkscreen&display=swap";
+body {
+  color: #fff;
+  background-color: #181818;
+  margin: 0;
+  font-family: Chakra Petch, sans-serif;
+  font-size: 24px;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.wrapper {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.profile {
+  background-color: #000;
+  border: 3px solid #acacac;
+  flex-direction: column;
+  align-items: center;
+  width: 70dvh;
+  display: flex;
+}
+
+.profile > div {
+  margin: 1em;
+}
+
+.profile-desc {
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  display: flex;
+}
+
+.profile-desc > div {
+  display: inline-flex;
+}
+
+.profile-desc > img {
+  border-radius: 50px;
+  width: 100px;
+}
+
+.pages {
+  background-color: #000;
+  border: 3px solid #acacac;
+  grid-template: "dashboard dashboard" 50px
+                 "projects gallery" 50px
+                 "games games" 50px
+                 / 200px 200px;
+  justify-content: center;
+  gap: 1rem 5rem;
+  width: 70dvh;
+  display: grid;
+}
+
+.pages > a:first-child {
+  grid-area: dashboard;
+}
+
+.pages > a:nth-child(2) {
+  grid-area: projects;
+}
+
+.pages > a:nth-child(3) {
+  grid-area: gallery;
+}
+
+.pages > a:last-child {
+  grid-area: games;
+}
+
+.pages > a {
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+}
+
+.pages > a:hover {
+  border: 1px solid #fff;
+}
+
+#terminal {
+  background-color: #000;
+  border: 3px solid #acacac;
+  border-top-width: 20px;
+  width: 70dvh;
+  height: 80px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=index.b07a87f3.css.map */
