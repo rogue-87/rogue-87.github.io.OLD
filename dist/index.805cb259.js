@@ -1,2 +1,0 @@
-const t=["Programmer","Artist(sometimes)","Gamer","Linux","Synthwave","Homestuck","Kitty + Neovim = POWER"];function e(){let e=Math.round(Math.random()*(t.length-1));return t[e]}let n=!1;function r(t=document.body,e="lorem",r=50){if(n)return;n=!0,t.innerText=">";let o=0,m=setInterval(()=>{t.textContent+=e.charAt(o),++o>=e.length&&(clearInterval(m),n=!1)},r)}const o=document.getElementById("msg");r(o,e(),50),setInterval(()=>{r(o,e(),50)},3e3);
-//# sourceMappingURL=index.805cb259.js.map
