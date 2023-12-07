@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Play:wght@400;700&family=Roboto:wght@300;400;500;700&family=Silkscreen&display=swap');
+@use 'global';
 
 :root{
   --primary: #fff;
@@ -35,18 +35,6 @@
     flex-direction: $direction;
   }
   gap: $gap;
-}
-
-body{
-  margin: 0;
-  font-family: 'Chakra Petch', sans-serif;
-  color: white;
-  background: black;
-}
-
-a{
-  color: white;
-  text-decoration: none;
 }
 
 .wrapper{

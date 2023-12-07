@@ -5,6 +5,7 @@
   "description": "this is my personal website",
   "scripts": {
     "dev": "parcel serve src/index.html",
+    "dev-pub": "parcel serve src/index.html --public-url ./",
     "watch": "parcel watch",
     "build": "parcel build",
     "build-pub": "parcel build src/index.html --public-url ./"
