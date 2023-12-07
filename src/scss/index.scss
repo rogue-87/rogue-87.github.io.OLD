@@ -170,14 +170,6 @@ a{
 }
 
 @media screen and (min-width:350px) and (max-width:470px){
-  canvas{
-    display: none;
-  }
-
-  body{
-    background-image: url("../assets/mobile_bg.gif");
-  }
-
   .wrapper{
     font-size: 1rem;
     >div{

@@ -1,1 +1,1 @@
-I'm thinking of starting from scratch lol
+My personal website.
