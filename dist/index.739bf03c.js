@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"8kGp1":[function(require,module,exports) {
+})({"b3anl":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -577,24 +577,31 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"ebWYT":[function(require,module,exports) {
 var _sentencesMjs = require("./modules/sentences.mjs");
 var _typewriterMjs = require("./modules/typewriter.mjs");
-const field = document.getElementById("terminal");
+const field = document.getElementById("msg");
 (0, _typewriterMjs.write)(field, (0, _sentencesMjs.pickSentence)(), 50);
+setInterval(()=>{
+    (0, _typewriterMjs.write)(field, (0, _sentencesMjs.pickSentence)(), 50);
+}, 3000);
 
 },{"./modules/sentences.mjs":"22izv","./modules/typewriter.mjs":"hdfZr"}],"22izv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "pickSentence", ()=>pickSentence);
 const sentences = [
-    ">Programmer_",
-    ">Artist(sometimes)_",
-    ">Gamer_"
+    "Programmer",
+    "Artist(sometimes)",
+    "Gamer",
+    "Linux",
+    "Synthwave",
+    "Homestuck",
+    "Kitty + Neovim = POWER"
 ];
 function pickSentence() {
     const randNum = Math.round(Math.random() * (sentences.length - 1));
     return sentences[randNum];
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}],"fD7H8":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -636,21 +643,18 @@ let running = false;
 function write(elem = document.body, text = "lorem", speed = 50) {
     if (running) return;
     running = true;
-    // console.log("running!");
-    elem.innerText = "";
+    elem.innerText = ">";
     let pen = 0;
     const intervalId = setInterval(()=>{
         elem.textContent += text.charAt(pen);
         pen++;
         if (pen >= text.length) {
             clearInterval(intervalId);
-            // console.log(`pen: ${pen}. text: ${text.length}`);
             running = false;
-        // console.log("no longer running");
         }
     }, speed);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8"}]},["8kGp1","ebWYT"], "ebWYT", "parcelRequire645a")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["b3anl","ebWYT"], "ebWYT", "parcelRequire645a")
 
 //# sourceMappingURL=index.739bf03c.js.map

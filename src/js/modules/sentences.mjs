@@ -1,7 +1,11 @@
 const sentences = [
-  ">Programmer_",
-  ">Artist(sometimes)_",
-  ">Gamer_"
+  "Programmer",
+  "Artist(sometimes)",
+  "Gamer",
+  "Linux",
+  "Synthwave",
+  "Homestuck",
+  "Kitty + Neovim = POWER",
 ];
 
 export function pickSentence() {

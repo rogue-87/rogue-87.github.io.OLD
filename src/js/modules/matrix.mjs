@@ -36,8 +36,8 @@ var canvas = document.getElementById("canvas"),
   ],
   maxCharCount = 100,
   fallingCharArr = [],
-  fontSize = 10,
-  maxColums = cw / fontSize;
+  fontSize = 20,
+  maxColumns = cw / fontSize;
 canvas.width = canvas2.width = cw;
 canvas.height = canvas2.height = ch;
 
@@ -56,7 +56,7 @@ function Point(x, y) {
 
 Point.prototype.draw = function (ctx) {
   this.value = charArr[randomInt(0, charArr.length - 1)].toUpperCase();
-  this.speed = randomFloat(1, 3);
+  this.speed = randomFloat(1, 1);
 
   ctx2.fillStyle = "rgba(255,255,255,0.8)";
   ctx2.font = fontSize + "px san-serif";
@@ -73,7 +73,7 @@ Point.prototype.draw = function (ctx) {
   }
 };
 
-for (var i = 0; i < maxColums; i++) {
+for (var i = 0; i < maxColumns; i++) {
   fallingCharArr.push(new Point(i * fontSize, randomFloat(-500, 0)));
 }
 

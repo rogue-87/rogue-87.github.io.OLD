@@ -1,33 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Play:wght@400;700&family=Roboto:wght@300;400;500;700&family=Silkscreen&display=swap');
 
-@mixin terminal($isTopTerminal){
-  @if($isTopTerminal){
-    background-color: black;
-    border: 3px solid rgb(172, 172, 172);
-    border-top: 20px solid rgb(172, 172, 172);
+:root{
+  --primary: #fff;
+  --accent: #007200;
+
+  --terminal: #636b71;
+  --terminal-bg: #0c0c0c;
+}
+
+@mixin terminal($width:500px){
+  background-color: var(--terminal-bg);
+  border: 3px solid var(--terminal);
+  border-top: 20px solid var(--terminal);
+  min-width: $width;
+}
+
+@mixin customTerminal($top: 0px, $bottom: 0px, $left: 0px, $right: 0px){
+  background-color: var(--terminal-bg);
+  border-top   : $top    solid var(--terminal);
+  border-bottom: $bottom solid var(--terminal);
+  border-left  : $left   solid var(--terminal);
+  border-right : $right  solid var(--terminal);
+}
+
+@mixin flex($direction: row, $center:false, $gap: 1rem){
+  @if($center){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
   }
   @else{
-    background-color: black;
-    border: 3px solid rgb(172, 172, 172);
-    border-top: 3px solid rgb(172, 172, 172);
+    display: flex;
+    flex-direction: $direction;
   }
-  
-  width: 70dvh;
+  gap: $gap;
 }
 
 body{
   margin: 0;
-  font-size: 24px;
   font-family: 'Chakra Petch', sans-serif;
   color: white;
-  background-color: #181818;
-}
-
-canvas {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
+  background: black;
 }
 
 a{
@@ -36,53 +50,43 @@ a{
 }
 
 .wrapper{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
-}
-
-.profile{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-    @include terminal(false);
+  font-size: 1.5rem;
+  position: relative;
+  @include flex($direction: column, $center: true);
+  min-height: 100svh;
+  
   
   >div{
-    margin: 1em;
+    @include terminal();
   }
 }
 
 .profile-desc{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+  @include flex(row, true);
+  margin: 25px 0 0 0;
 
-  >div{
-    display: inline-flex;
+  :first-child{
+    @include customTerminal(4px, 4px, 4px, 4px);
+    width: 100px;
   }
 
-  >img{
-    width: 100px;
-    border-radius: calc(100px/2);
+  :last-child{
+    display: inherit
   }
 }
 
+.quote{
+  margin: 25px 0 0 0;
+  @include customTerminal(3px);
+  text-align: center;
+}
+
 .pages{
-  @include terminal(false);
+  padding: 1rem 0;
   display: grid;
-  gap: 1rem 5rem;
-  justify-content: center;
-  grid-template-columns: 200px 200px;
-  grid-template-rows: 50px 50px 50px;
+  place-content: center;
+  grid-template-rows: repeat(3, 60px);
+  grid-template-columns: repeat(2, 200px);
   grid-template-areas: 
   "dashboard dashboard"
   "projects gallery"
@@ -99,27 +103,119 @@ a{
   
   >a:nth-child(3){
     grid-area: gallery;
+
+    &:hover{
+      cursor: not-allowed;
+      border: none;
+    }
   }
   
   >a:last-child{
     grid-area: games;
+    &:hover{
+      cursor: not-allowed;
+      border: none;
+    }
   }
-  //why not nth child all of em? I dunno.
+  //why not nth child all of em? helps me keep track of the beginning and the end of children elements.
   
   >a{
     margin: auto;
-    text-align: center;
-    padding: 10px;
+    padding: 5px;
   }
 
   >a:hover{
-    // text-decoration: underline;
     border: 1px solid white;
   }
 }
 
-#terminal{
-  @include terminal(true);
-  height: 80px;
+.socials{
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 40px);
+  grid-template-areas: 
+  "link link link"
+  "link link link"
+  "id id id"
+   ;
+
+  :last-child{
+    grid-area: id;
+  }
+
+  >*{
+    margin: auto;
+  }
+
+  >a:hover {
+    text-decoration: underline;
+  }
+}
+
+#msg{
   font-weight: bold;
+  min-height: 2rem;
+}
+
+::-webkit-scrollbar{
+  width: 0.3vmax;
+  height: 0.3vmax;
+  &-corner{
+    background: transparent;
+  }
+  &-thumb{
+    background-color: var(--terminal);
+  }
+}
+
+@media screen and (min-width:350px) and (max-width:470px){
+  canvas{
+    display: none;
+  }
+
+  body{
+    background-image: url("../assets/mobile_bg.gif");
+  }
+
+  .wrapper{
+    font-size: 1rem;
+    >div{
+      min-width: 90vw;
+    }
+  }
+
+  .profile-desc {
+    @include flex(column, true);
+    margin: 25px 0 0 0;
+
+    :first-child {
+      @include customTerminal(4px, 4px, 4px, 4px);
+      width: 100px;
+    }
+
+    :last-child {
+      display: inherit
+    }
+  }
+
+  .quote{
+    font-size: 1.50rem;
+    text-wrap: balance;
+    word-wrap: break-word;
+    max-width: 90vw;
+  }
+
+  .pages{
+    font-size: 1.40rem;
+    grid-template-rows: repeat(3, 60px);
+    grid-template-columns: 10rem 10rem;
+  }
+
+  .socials{
+    font-size: 1.20rem;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 40px);
+  }
+
 }

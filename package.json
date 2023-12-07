@@ -10,6 +10,8 @@
   "author": "rogue87",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-sass": "2.10.3"
+    "@parcel/transformer-sass": "2.10.3",
+    "parcel": "^2.10.3",
+    "sass": "^1.69.5"
   }
 }

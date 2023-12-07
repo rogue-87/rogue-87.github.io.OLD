@@ -10,8 +10,7 @@ export function write(elem = document.body, text = "lorem", speed = 50) {
     return;
   }
   running = true;
-  // console.log("running!");
-  elem.innerText = "";
+  elem.innerText = ">";
   let pen = 0;
 
   const intervalId = setInterval(() => {
@@ -20,9 +19,7 @@ export function write(elem = document.body, text = "lorem", speed = 50) {
 
     if (pen >= text.length) {
       clearInterval(intervalId);
-      // console.log(`pen: ${pen}. text: ${text.length}`);
       running = false;
-      // console.log("no longer running");
     }
   }, speed);
 }
