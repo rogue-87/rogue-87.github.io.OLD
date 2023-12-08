@@ -1,4 +1,11 @@
 @import "https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Play:wght@400;700&family=Roboto:wght@300;400;500;700&family=Silkscreen&display=swap";
+:root {
+  --primary: #fff;
+  --accent: #007200;
+  --terminal: #636b71;
+  --terminal-bg: #0c0c0c;
+}
+
 body {
   color: #fff;
   background: #000;
@@ -9,13 +16,6 @@ body {
 a {
   color: #fff;
   text-decoration: none;
-}
-
-:root {
-  --primary: #fff;
-  --accent: #007200;
-  --terminal: #636b71;
-  --terminal-bg: #0c0c0c;
 }
 
 .wrapper {

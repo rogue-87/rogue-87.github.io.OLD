@@ -1,0 +1,30 @@
+@mixin terminal($width: 500px) {
+  background-color: var(--terminal-bg);
+  border: 3px solid var(--terminal);
+  border-top: 20px solid var(--terminal);
+  min-width: $width;
+}
+
+@mixin customTerminal($top: 0px, $bottom: 0px, $left: 0px, $right: 0px) {
+  background-color: var(--terminal-bg);
+  border-top: $top solid var(--terminal);
+  border-bottom: $bottom solid var(--terminal);
+  border-left: $left solid var(--terminal);
+  border-right: $right solid var(--terminal);
+}
+
+@mixin flex($direction: row, $center: false, $gap: 1rem) {
+  @if($center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @else {
+    display: flex;
+    flex-direction: $direction;
+  }
+
+  gap: $gap;
+}
